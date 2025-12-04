@@ -62,7 +62,7 @@ export async function POST(req) {
 
         // send email to customer
         await sendEmail({
-          from: "InvoiceMgr <noreply@mail.mailapi.dev>",
+          from: "InvoiceMgr <hello@invoicemanager.xyz>",
           to: customerEmail,
           subject: `Payment Confirmed - ${invoice.purpose}`,
           template_id: "invoice_receipt",

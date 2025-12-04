@@ -33,7 +33,7 @@ export async function createInvoice(formData) {
 
     // send email invoice
     await sendEmail({
-      from: "InvoiceMgr <noreply@mail.mailapi.dev>",
+      from: "InvoiceMgr <hello@invoicemanager.xyz>",
       to: customerEmail,
       subject: `InvoiceMgr - ${purpose}`,
       template_id: "invoice_tutorial",
