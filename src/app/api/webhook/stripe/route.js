@@ -64,7 +64,7 @@ export async function POST(req) {
         await sendEmail({
           from: "InvoiceMgr <noreply@mail.mailapi.dev>",
           to: customerEmail,
-          subject: `InvoiceMgr - ${purpose}`,
+          subject: `Payment Confirmed - ${invoice.purpose}`,
           template_id: "invoice_receipt",
           template_data: {
             purpose: invoice.purpose,
@@ -82,8 +82,13 @@ export async function POST(req) {
             paidAt: new Date().toISOString(),
           },
         });
+
+        break;
       }
+      default:
+        console.log("⚠️ Unhandled Stripe event:", eventType);
     }
+
   } catch (error) {
     return NextResponse.json({ error: "Webhook error" }, { status: 500 });
   }
